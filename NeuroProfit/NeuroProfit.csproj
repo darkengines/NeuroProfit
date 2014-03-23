@@ -38,9 +38,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Buffer.cs" />
-    <Compile Include="Data.cs" />
+    <Compile Include="DataHandler.cs" />
+    <Compile Include="DataLoader\Loader.cs" />
+    <Compile Include="DataLoader\DataLoaderDatum.cs" />
+    <Compile Include="DataLoader\DateConverter.cs" />
+    <Compile Include="DataRegister.cs" />
+    <Compile Include="DateRange.cs" />
     <Compile Include="Datum.cs" />
+    <Compile Include="IIndicator.cs" />
+    <Compile Include="Indicator.cs" />
+    <Compile Include="MovingAverageIndicator.cs" />
+    <Compile Include="TimeSpanExtension.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FileHelpers">

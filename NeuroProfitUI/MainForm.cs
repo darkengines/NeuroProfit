@@ -26,14 +26,6 @@ namespace NeuroProfitUI {
 
 		void fileDialog_FileOk(object sender, CancelEventArgs e) {
 			PriceData = new Data(((OpenFileDialog)sender).FileName);
-			PriceChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Candlestick;
-			var buffer = PriceData.GetRange(new DateTime(2013, 11, 12), new DateTime(2013, 11, 13));
-			PriceChart.DataSource = buffer.Data;
-			PriceChart.Series[0].XValueMember = "Time";
-			PriceChart.Series[0].YValueMembers = "High, Low, Open, Close";
-			PriceChart.ChartAreas[0].AxisY.Maximum = buffer.Max;
-			PriceChart.ChartAreas[0].AxisY.Minimum = buffer.Min;
-			PriceChart.DataBind();
 		}
 	}
 }

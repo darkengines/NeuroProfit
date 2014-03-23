@@ -6,17 +6,6 @@ using System.Threading.Tasks;
 using FileHelpers;
 
 namespace NeuroProfit {
-	[DelimitedRecord(",")]
-	public class InternalPriceSession {
-		[FieldConverter(ConverterKind.Date, "yyyy.MM.dd HH:mm")]
-		public DateTime Time;
-		public double Open;
-		public double High;
-		public double Low;
-		public double Close;
-		public int TickVolume;
-		public int Volume;
-	}
 	public class Datum {
 		public DateTime Time { get; set; }
 		public double Open { get; set; }

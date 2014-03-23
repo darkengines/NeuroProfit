@@ -23,17 +23,16 @@
 		/// le contenu de cette méthode avec l'éditeur de code.
 		/// </summary>
 		private void InitializeComponent() {
-			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-			System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-			System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
 			this.MainFormMenuStrip = new System.Windows.Forms.MenuStrip();
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+			this.MainLayout = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.PriceChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.MainFormMenuStrip.SuspendLayout();
+			this.MainLayout.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.PriceChart)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// MainFormMenuStrip
@@ -42,7 +41,7 @@
             this.fileToolStripMenuItem});
 			this.MainFormMenuStrip.Location = new System.Drawing.Point(0, 0);
 			this.MainFormMenuStrip.Name = "MainFormMenuStrip";
-			this.MainFormMenuStrip.Size = new System.Drawing.Size(1246, 24);
+			this.MainFormMenuStrip.Size = new System.Drawing.Size(1240, 24);
 			this.MainFormMenuStrip.TabIndex = 0;
 			this.MainFormMenuStrip.Text = "menuStrip1";
 			// 
@@ -61,57 +60,67 @@
 			this.loadToolStripMenuItem.Text = "Load";
 			this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
 			// 
+			// statusStrip1
+			// 
+			this.statusStrip1.Location = new System.Drawing.Point(0, 475);
+			this.statusStrip1.Name = "statusStrip1";
+			this.statusStrip1.Size = new System.Drawing.Size(1240, 22);
+			this.statusStrip1.TabIndex = 0;
+			this.statusStrip1.Text = "statusStrip1";
+			// 
+			// MainLayout
+			// 
+			this.MainLayout.ColumnCount = 1;
+			this.MainLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.MainLayout.Controls.Add(this.statusStrip1, 0, 1);
+			this.MainLayout.Controls.Add(this.tableLayoutPanel1, 0, 0);
+			this.MainLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.MainLayout.Location = new System.Drawing.Point(0, 24);
+			this.MainLayout.Name = "MainLayout";
+			this.MainLayout.RowCount = 2;
+			this.MainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.MainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.MainLayout.Size = new System.Drawing.Size(1240, 497);
+			this.MainLayout.TabIndex = 1;
+			// 
 			// tableLayoutPanel1
 			// 
-			this.tableLayoutPanel1.ColumnCount = 1;
+			this.tableLayoutPanel1.ColumnCount = 2;
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 177F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel1.Controls.Add(this.PriceChart, 0, 0);
+			this.tableLayoutPanel1.Controls.Add(this.tabControl1, 1, 0);
 			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 1;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(1246, 308);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(1234, 469);
 			this.tableLayoutPanel1.TabIndex = 1;
 			// 
-			// PriceChart
+			// tabControl1
 			// 
-			chartArea1.Name = "ChartArea1";
-			this.PriceChart.ChartAreas.Add(chartArea1);
-			this.PriceChart.Dock = System.Windows.Forms.DockStyle.Fill;
-			legend1.Name = "Legend1";
-			this.PriceChart.Legends.Add(legend1);
-			this.PriceChart.Location = new System.Drawing.Point(3, 3);
-			this.PriceChart.Name = "PriceChart";
-			this.PriceChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-			series1.ChartArea = "ChartArea1";
-			series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Candlestick;
-			series1.Legend = "Legend1";
-			series1.Name = "Series1";
-			series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
-			series1.YValuesPerPoint = 4;
-			series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-			this.PriceChart.Series.Add(series1);
-			this.PriceChart.Size = new System.Drawing.Size(1240, 302);
-			this.PriceChart.TabIndex = 0;
-			this.PriceChart.Text = "chart1";
+			this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabControl1.Location = new System.Drawing.Point(180, 3);
+			this.tabControl1.Name = "tabControl1";
+			this.tabControl1.SelectedIndex = 0;
+			this.tabControl1.Size = new System.Drawing.Size(1051, 463);
+			this.tabControl1.TabIndex = 0;
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1246, 332);
-			this.Controls.Add(this.tableLayoutPanel1);
+			this.ClientSize = new System.Drawing.Size(1240, 521);
+			this.Controls.Add(this.MainLayout);
 			this.Controls.Add(this.MainFormMenuStrip);
 			this.MainMenuStrip = this.MainFormMenuStrip;
 			this.Name = "MainForm";
 			this.Text = "Form1";
 			this.MainFormMenuStrip.ResumeLayout(false);
 			this.MainFormMenuStrip.PerformLayout();
+			this.MainLayout.ResumeLayout(false);
+			this.MainLayout.PerformLayout();
 			this.tableLayoutPanel1.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.PriceChart)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -122,8 +131,10 @@
 		private System.Windows.Forms.MenuStrip MainFormMenuStrip;
 		private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
+		private System.Windows.Forms.StatusStrip statusStrip1;
+		private System.Windows.Forms.TableLayoutPanel MainLayout;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-		private System.Windows.Forms.DataVisualization.Charting.Chart PriceChart;
+		private System.Windows.Forms.TabControl tabControl1;
 
 
 	}
