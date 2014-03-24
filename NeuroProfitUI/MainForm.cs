@@ -8,14 +8,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace NeuroProfitUI {
 	public partial class MainForm : Form {
 
-		public Data PriceData { get; set; }
+		public DataRegister dataRegister;
 
 		public MainForm() {
 			InitializeComponent();
+			dataRegister = new DataRegister();
+			dataRegister.DataHandlerRegistered += dataRegister_DataHandlerRegistered;
+		}
+
+		void dataRegister_DataHandlerRegistered(object sender, DataHandlerRegisteredEventArgs e) {
+			var name = e.DataHandler.Name;
+			var chart = new PriceChart();
+			chart.DataHandler = e.DataHandler;
+
+			chart.Dock = DockStyle.Fill;
+
+			ChartTab.TabPages.Add(name, name);
+			ChartTab.TabPages[name].Controls.Add(chart);
 		}
 
 		private void loadToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -25,7 +39,7 @@ namespace NeuroProfitUI {
 		}
 
 		void fileDialog_FileOk(object sender, CancelEventArgs e) {
-			PriceData = new Data(((OpenFileDialog)sender).FileName);
+			dataRegister.Register(((OpenFileDialog)sender).FileName);
 		}
 	}
 }

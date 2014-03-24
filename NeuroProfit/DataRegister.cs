@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace NeuroProfit {
 	public class DataRegister {
+		public event EventHandler<DataHandlerRegisteredEventArgs> DataHandlerRegistered;
 		protected Loader dataLoader;
 		protected List<DataHandler> dataHandlers;
 		public DataRegister() {
@@ -20,7 +21,11 @@ namespace NeuroProfit {
 			}
 		}
 		public void Register(string source) {
-			dataHandlers.Add(new DataHandler(Path.GetFileNameWithoutExtension(source), dataLoader.Load(source)));
+			var dataHandler = new DataHandler(Path.GetFileNameWithoutExtension(source), dataLoader.Load(source));
+			dataHandlers.Add(dataHandler);
+			if (DataHandlerRegistered != null) {
+				DataHandlerRegistered(this, new DataHandlerRegisteredEventArgs(dataHandler));
+			}
 		}
 	}
 }

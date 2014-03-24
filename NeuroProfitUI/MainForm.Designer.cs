@@ -26,13 +26,13 @@
 			this.MainFormMenuStrip = new System.Windows.Forms.MenuStrip();
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+			this.Status = new System.Windows.Forms.StatusStrip();
 			this.MainLayout = new System.Windows.Forms.TableLayoutPanel();
-			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.tabControl1 = new System.Windows.Forms.TabControl();
+			this.SubLayout = new System.Windows.Forms.TableLayoutPanel();
+			this.ChartTab = new System.Windows.Forms.TabControl();
 			this.MainFormMenuStrip.SuspendLayout();
 			this.MainLayout.SuspendLayout();
-			this.tableLayoutPanel1.SuspendLayout();
+			this.SubLayout.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// MainFormMenuStrip
@@ -56,24 +56,24 @@
 			// loadToolStripMenuItem
 			// 
 			this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-			this.loadToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+			this.loadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.loadToolStripMenuItem.Text = "Load";
 			this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
 			// 
-			// statusStrip1
+			// Status
 			// 
-			this.statusStrip1.Location = new System.Drawing.Point(0, 475);
-			this.statusStrip1.Name = "statusStrip1";
-			this.statusStrip1.Size = new System.Drawing.Size(1240, 22);
-			this.statusStrip1.TabIndex = 0;
-			this.statusStrip1.Text = "statusStrip1";
+			this.Status.Location = new System.Drawing.Point(0, 475);
+			this.Status.Name = "Status";
+			this.Status.Size = new System.Drawing.Size(1240, 22);
+			this.Status.TabIndex = 0;
+			this.Status.Text = "statusStrip1";
 			// 
 			// MainLayout
 			// 
 			this.MainLayout.ColumnCount = 1;
 			this.MainLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.MainLayout.Controls.Add(this.statusStrip1, 0, 1);
-			this.MainLayout.Controls.Add(this.tableLayoutPanel1, 0, 0);
+			this.MainLayout.Controls.Add(this.Status, 0, 1);
+			this.MainLayout.Controls.Add(this.SubLayout, 0, 0);
 			this.MainLayout.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.MainLayout.Location = new System.Drawing.Point(0, 24);
 			this.MainLayout.Name = "MainLayout";
@@ -83,28 +83,28 @@
 			this.MainLayout.Size = new System.Drawing.Size(1240, 497);
 			this.MainLayout.TabIndex = 1;
 			// 
-			// tableLayoutPanel1
+			// SubLayout
 			// 
-			this.tableLayoutPanel1.ColumnCount = 2;
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 177F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.Controls.Add(this.tabControl1, 1, 0);
-			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-			this.tableLayoutPanel1.RowCount = 1;
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(1234, 469);
-			this.tableLayoutPanel1.TabIndex = 1;
+			this.SubLayout.ColumnCount = 2;
+			this.SubLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 177F));
+			this.SubLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.SubLayout.Controls.Add(this.ChartTab, 1, 0);
+			this.SubLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.SubLayout.Location = new System.Drawing.Point(3, 3);
+			this.SubLayout.Name = "SubLayout";
+			this.SubLayout.RowCount = 1;
+			this.SubLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.SubLayout.Size = new System.Drawing.Size(1234, 469);
+			this.SubLayout.TabIndex = 1;
 			// 
-			// tabControl1
+			// ChartTab
 			// 
-			this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tabControl1.Location = new System.Drawing.Point(180, 3);
-			this.tabControl1.Name = "tabControl1";
-			this.tabControl1.SelectedIndex = 0;
-			this.tabControl1.Size = new System.Drawing.Size(1051, 463);
-			this.tabControl1.TabIndex = 0;
+			this.ChartTab.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.ChartTab.Location = new System.Drawing.Point(180, 3);
+			this.ChartTab.Name = "ChartTab";
+			this.ChartTab.SelectedIndex = 0;
+			this.ChartTab.Size = new System.Drawing.Size(1051, 463);
+			this.ChartTab.TabIndex = 0;
 			// 
 			// MainForm
 			// 
@@ -120,7 +120,7 @@
 			this.MainFormMenuStrip.PerformLayout();
 			this.MainLayout.ResumeLayout(false);
 			this.MainLayout.PerformLayout();
-			this.tableLayoutPanel1.ResumeLayout(false);
+			this.SubLayout.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -131,10 +131,10 @@
 		private System.Windows.Forms.MenuStrip MainFormMenuStrip;
 		private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
-		private System.Windows.Forms.StatusStrip statusStrip1;
+		private System.Windows.Forms.StatusStrip Status;
 		private System.Windows.Forms.TableLayoutPanel MainLayout;
-		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-		private System.Windows.Forms.TabControl tabControl1;
+		private System.Windows.Forms.TableLayoutPanel SubLayout;
+		private System.Windows.Forms.TabControl ChartTab;
 
 
 	}
