@@ -12,23 +12,27 @@ namespace NeuroProfit {
 
 		public DataHandler(string name, Datum[] data) {
 			Name = name;
-			Data = data;
+			Date = data.Select(d => d.Time).ToArray();
+			Open = data.Select(d => d.Open).ToArray();
+			High = data.Select(d => d.High).ToArray();
+			Low = data.Select(d => d.Low).ToArray();
+			Close = data.Select(d => d.Close).ToArray();
+			TickVolume = data.Select(d => d.TickVolume).ToArray();
+
 			Indicators = new List<Indicator>();
 		}
 
 		public string Name { get; protected set; }
-		public Datum[] Data { get; protected set; }
+		public DateTime[] Date { get; set; }
+		public double[] Open { get; set; }
+		public double[] High { get; set; }
+		public double[] Low { get; set; }
+		public double[] Close { get; set; }
+		public int[] TickVolume { get; set; }
 		protected List<Indicator> Indicators { get; set; }
-		public IEnumerable<Datum> GetRange(DateRange range) {
-			return Data.SkipWhile(datum => datum.Time <= range.Start).TakeWhile(datum => datum.Time <= range.End);
-		}
-		public TimeSpan Unit {
-			get {
-				return Data.ElementAt(1).Time - Data.First().Time;
-			}
-		}
+
 		public void AddIndicator(Indicator indicator) {
-			indicator.DataSource = Data;
+			indicator.DataBind(this);
 			Indicators.Add(indicator);
 			if (IndicatorAdded != null) {
 				IndicatorAdded(this, new IndicatorAddedEventArgs(indicator));

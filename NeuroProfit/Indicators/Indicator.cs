@@ -9,26 +9,16 @@ namespace NeuroProfit.Indicators {
 		public Indicator() {
 			Buffers = new Dictionary<string, double?[]>();
 		}
-		protected Datum[] data;
 		public Dictionary<string, double?[]> Buffers { get; protected set; }
-		public Datum[] DataSource {
-			get {
-				return data;
-			}
-			set {
-				data = value;
-				Init();
-				Compute(data);
-			}
-		}
-		protected abstract void Init();
-		protected abstract int ComputeDatum(Datum[] data, int lastComputed, int total);
-		protected void Compute(Datum[] data) {
-			int count = data.Count();
-			int i = 0;
-			while (i < count) {
-				ComputeDatum(data, i == 0 ? 0 : i - 1, count);
-				i++;
+		public abstract void DataBind(DataHandler dataHandler);
+		protected double[] Get(DataHandler dataHandler, PriceType type) {
+			switch (type) {
+				case (PriceType.Open): return dataHandler.Open;
+				case (PriceType.Close): return dataHandler.Close;
+				case (PriceType.Low): return dataHandler.Low;
+				case (PriceType.High): return dataHandler.High;
+				case (PriceType.TickVolume): return dataHandler.TickVolume.Select(Convert.ToDouble).ToArray();
+				default: return null;
 			}
 		}
 	}

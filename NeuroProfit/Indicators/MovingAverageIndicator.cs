@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace NeuroProfit.Indicators {
-	class MovingAverageIndicator: Indicator {
+	public class MovingAverageIndicator: Indicator {
 
 		public MovingAverageIndicator(int period, PriceType priceType) {
 			Period = period;
@@ -14,23 +14,25 @@ namespace NeuroProfit.Indicators {
 		public PriceType PriceType { get; set; }
 		public int Period { get; set; }
 
-		protected override void Init() {
-			Buffers["MA"] = new double?[data.Count()];
-		}
-
-		protected override int ComputeDatum(Datum[] data, int lastComputed, int total) {
-			if (lastComputed < Period - 1) {
-				Buffers["MA"][lastComputed] = null;
-			} else {
-				int index = lastComputed+1;
-				if (lastComputed < Period) {
-					Buffers["MA"][index] = data.Take(index).Average(DatumHelper.SelectFunc(PriceType));
-				} else {
-					double factor = 1.0d / Period;
-					Buffers["MA"][index] = Buffers["MA"][index - 1] + (DatumHelper.Select(data[index], PriceType) - DatumHelper.Select(data[index - Period], PriceType)) * factor;
-				}			
+		public override void DataBind(DataHandler dataHandler) {
+			var count = dataHandler.Date.Count();
+			var ma = new double?[count];
+			var data = Get(dataHandler, PriceType);
+			var i = 0;
+			var sum = 0.0d;
+			while (i < Period) {
+				ma[i] = null;
+				sum += data[i];
+				i++;
 			}
-			return lastComputed++;
+			ma[i - 1] = sum / Period;
+			var factor = 1.0d / Period;
+			while (i < count) {
+				var d = (data[i] - data[i-Period])*factor;
+				ma[i] = ma[i - 1] + d;
+				i++;
+			}
+			Buffers["MA"] = ma;
 		}
 	}
 }
