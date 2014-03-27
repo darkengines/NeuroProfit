@@ -54,9 +54,6 @@
     <Compile Include="TimeSpanExtension.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Fann.Net">
-      <HintPath>..\lib\Fann.Net.dll</HintPath>
-    </Reference>
     <Reference Include="FileHelpers">
       <HintPath>..\lib\FileHelpers.dll</HintPath>
     </Reference>
