@@ -1,4 +1,5 @@
 ﻿using NeuroProfit.Indicators;
+using NeuroProfitUI.DynamicForm;
 using System;
 using System.Collections.Generic;
 using System.Linq;

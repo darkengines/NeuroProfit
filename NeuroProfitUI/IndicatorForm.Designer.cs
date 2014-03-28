@@ -1,4 +1,5 @@
-﻿namespace NeuroProfitUI {
+﻿using NeuroProfitUI.DynamicForm;
+namespace NeuroProfitUI {
 	partial class IndicatorForm {
 		/// <summary>
 		/// Required designer variable.
@@ -29,7 +30,7 @@
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.button2 = new System.Windows.Forms.Button();
 			this.btnOk = new System.Windows.Forms.Button();
-			this.dynamicForm = new NeuroProfitUI.DynamicForm();
+			this.dynamicForm = new DynamicFormUserControl();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
 			this.tableLayoutPanel3.SuspendLayout();
@@ -145,6 +146,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnOk;
-		private DynamicForm dynamicForm;
+		private DynamicFormUserControl dynamicForm;
 	}
 }

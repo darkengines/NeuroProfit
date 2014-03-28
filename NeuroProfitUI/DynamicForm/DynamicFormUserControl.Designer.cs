@@ -1,5 +1,5 @@
-﻿namespace NeuroProfitUI {
-	partial class DynamicForm {
+﻿namespace NeuroProfitUI.DynamicForm {
+	partial class DynamicFormUserControl {
 		/// <summary> 
 		/// Variable nécessaire au concepteur.
 		/// </summary>

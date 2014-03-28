@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NeuroProfitUI {
-	public class ClassTableInteger64TextboxProvider: IClassTableEditorProvider {
-		public ClassTableEditor GetNewEditor() {
-			return new ClassTableTextBox<Int64?>(x => {
+namespace NeuroProfitUI.DynamicForm {
+	public class DynamicFormIntegerTextboxProvider: IDynamicFormEditorProvider {
+		public DynamicFormEditor GetNewEditor() {
+			return new DynamicFormTextBox<int?>(x => {
 				int t;
 				if (int.TryParse(x, out t)) {
 					return t;

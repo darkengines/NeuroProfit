@@ -8,10 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace NeuroProfitUI {
-	public partial class DynamicForm : UserControl {
+namespace NeuroProfitUI.DynamicForm {
+	public partial class DynamicFormUserControl : UserControl {
 		public ClassInfo classInfo;
-		protected Dictionary<MemberInfo, ClassTableEditor> MembersControlMap { get; set; }
+		protected Dictionary<MemberInfo, DynamicFormEditor> MembersControlMap { get; set; }
 		protected object instance;
 		public ClassInfo ClassInfo {
 			get { return classInfo; }
@@ -24,8 +24,8 @@ namespace NeuroProfitUI {
 				}
 			}
 		}
-		public DynamicForm() {
-			MembersControlMap = new Dictionary<MemberInfo, ClassTableEditor>();
+		public DynamicFormUserControl() {
+			MembersControlMap = new Dictionary<MemberInfo, DynamicFormEditor>();
 			InitializeComponent();
 		}
 		public object Instance {
@@ -61,7 +61,7 @@ namespace NeuroProfitUI {
 				editor.Dock = DockStyle.Fill;
 				DynamicLayout.Controls.Add(label, 0, i);
 				DynamicLayout.Controls.Add(editor, 1, i);
-				MembersControlMap[member] = (ClassTableEditor)editor;
+				MembersControlMap[member] = (DynamicFormEditor)editor;
 				i++;
 			}
 		}

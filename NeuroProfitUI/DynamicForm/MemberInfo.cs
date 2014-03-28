@@ -5,7 +5,7 @@ using System.Text;
 using System.Linq.Expressions;
 using System.Collections.ObjectModel;
 
-namespace NeuroProfitUI {
+namespace NeuroProfitUI.DynamicForm {
 	public abstract class MemberInfo {
 		public string Name {
 			get;
@@ -14,8 +14,8 @@ namespace NeuroProfitUI {
 		public string Label = null;
 		public int Position = 0;
 		public Type Type = null;
-		protected IClassTableEditorProvider EditorProvider;
-		public ClassTableEditor Editor {
+		protected IDynamicFormEditorProvider EditorProvider;
+		public DynamicFormEditor Editor {
 			get {
 				return EditorProvider.GetNewEditor();
 			}
@@ -24,7 +24,7 @@ namespace NeuroProfitUI {
 	public class MemberInfo<T>: MemberInfo {
 		public Expression<Func<T, object>> Member;
 
-		public MemberInfo(Expression<Func<T, object>> member, IClassTableEditorProvider editor, string label, int position) {
+		public MemberInfo(Expression<Func<T, object>> member, IDynamicFormEditorProvider editor, string label, int position) {
 			Name = ExpressionHelper.MemberToString<T>(member);
 			EditorProvider = editor;
 			Type = member.GetType().GetGenericArguments()[0].GetGenericArguments()[1];

@@ -45,26 +45,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClassInfo.cs" />
-    <Compile Include="ClassTableEditor.cs" />
-    <Compile Include="ClassTableEditorProvider.cs" />
-    <Compile Include="ClassTableInteger64TextboxProvider.cs" />
-    <Compile Include="ClassTableIntegerTextboxProvider.cs" />
-    <Compile Include="ClassTableTextBox.cs">
+    <Compile Include="DynamicForm\ClassInfo.cs" />
+    <Compile Include="DynamicForm\DynamicFormUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ClassTableTextboxProvider.cs" />
-    <Compile Include="ClassTableComboBox.cs">
+    <Compile Include="DynamicForm\DynamicFormUserControl.Designer.cs">
+      <DependentUpon>DynamicFormUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicForm\DynamicFormComboBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ClassTableEnumComboBoxProvider.cs" />
-    <Compile Include="DynamicForm.cs">
+    <Compile Include="DynamicForm\DynamicFormEditor.cs" />
+    <Compile Include="DynamicForm\DynamicFormEditorProvider.cs" />
+    <Compile Include="DynamicForm\DynamicFormEnumComboBoxProvider.cs" />
+    <Compile Include="DynamicForm\DynamicFormInteger64TextboxProvider.cs" />
+    <Compile Include="DynamicForm\DynamicFormIntegerTextboxProvider.cs" />
+    <Compile Include="DynamicForm\DynamicFormTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DynamicForm.Designer.cs">
-      <DependentUpon>DynamicForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ExpressionHelper.cs" />
+    <Compile Include="DynamicForm\DynamicFormTextboxProvider.cs" />
+    <Compile Include="DynamicForm\ExpressionHelper.cs" />
+    <Compile Include="DynamicForm\MemberInfo.cs" />
     <Compile Include="IndicatorClassInfoProvider.cs" />
     <Compile Include="IndicatorForm.cs">
       <SubType>Form</SubType>
@@ -79,12 +80,11 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MemberInfo.cs" />
     <Compile Include="MovingAverageIndicatorInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="DynamicForm.resx">
-      <DependentUpon>DynamicForm.cs</DependentUpon>
+    <EmbeddedResource Include="DynamicForm\DynamicFormUserControl.resx">
+      <DependentUpon>DynamicFormUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IndicatorForm.resx">
       <DependentUpon>IndicatorForm.cs</DependentUpon>

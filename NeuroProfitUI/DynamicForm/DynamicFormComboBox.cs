@@ -1,11 +1,12 @@
-﻿using System;
+﻿using NeuroProfitUI.DynamicForm;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
 namespace NeuroProfitUI {
-	public class ClassTableComboBox: UserControl, ClassTableEditor {
+	public class DynamicFormComboBox: UserControl, DynamicFormEditor {
 		private ComboBox comboBox;
 		protected Func<object, object> Converter { get; set; }
 		public IEnumerable<object> DataSource {
@@ -16,7 +17,7 @@ namespace NeuroProfitUI {
 				comboBox.DataSource = value;
 			}
 		}
-		public ClassTableComboBox(IEnumerable<object> dataSource, Func<object, object> converter) {
+		public DynamicFormComboBox(IEnumerable<object> dataSource, Func<object, object> converter) {
 			Converter = converter;
 			comboBox = new ComboBox();
 			Controls.Add(comboBox);

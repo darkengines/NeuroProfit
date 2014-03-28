@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Linq.Expressions;
 
-namespace NeuroProfitUI {
+namespace NeuroProfitUI.DynamicForm {
 	public static class ExpressionHelper {
 		public static string MemberToString<T>(Expression<Func<T, object>> member) {
 			return MemberToString<T, object>(member);
