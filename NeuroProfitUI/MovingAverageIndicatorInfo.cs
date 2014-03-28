@@ -1,4 +1,5 @@
-﻿using NeuroProfit.Indicators;
+﻿using NeuroProfit;
+using NeuroProfit.Indicators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace NeuroProfitUI {
 	public class MovingAverageIndicatorClassInfo : ClassInfo<MovingAverageIndicator> {
 		public MovingAverageIndicatorClassInfo() {
 			Member(x => x.Period, new ClassTableIntegerTextboxProvider(), "Period", 0);
+			Member(x => x.PriceType, new ClassTableEnumComboBoxProvider(typeof(PriceType)), "On", 1);
 		}
 	}
 }

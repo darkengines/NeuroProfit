@@ -51,9 +51,13 @@
     <Compile Include="ClassTableInteger64TextboxProvider.cs" />
     <Compile Include="ClassTableIntegerTextboxProvider.cs" />
     <Compile Include="ClassTableTextBox.cs">
-      <SubType>Component</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ClassTableTextboxProvider.cs" />
+    <Compile Include="ClassTableComboBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ClassTableEnumComboBoxProvider.cs" />
     <Compile Include="DynamicForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -61,12 +65,14 @@
       <DependentUpon>DynamicForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ExpressionHelper.cs" />
+    <Compile Include="IndicatorClassInfoProvider.cs" />
     <Compile Include="IndicatorForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="IndicatorForm.Designer.cs">
       <DependentUpon>IndicatorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="IndicatorSelectedEventArgs.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

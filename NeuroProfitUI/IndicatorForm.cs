@@ -12,17 +12,32 @@ using System.Windows.Forms;
 
 namespace NeuroProfitUI {
 	public partial class IndicatorForm : Form {
+		public event EventHandler<IndicatorSelectedEventArgs> IndicatorSelected;
 		public IndicatorForm() {
 			InitializeComponent();
+
 		}
 
         private void IndicatorForm_Load(object sender, EventArgs e) {
-            var indicators = Assembly.GetExecutingAssembly().GetTypes().Where(t => t.IsSubclassOf(typeof(Indicator))).Select(t => Activator.CreateInstance(t)).Cast<Indicator>();
-            var classInfos = Assembly.GetExecutingAssembly().GetTypes().Where(t => t.IsSubclassOf(typeof(ClassInfo))).Select(t => Activator.CreateInstance(t)).Cast<ClassInfo>();
-
-            foreach (var indicatorType in indicators) {
-                if (classInfos.FirstOrDefault(ci => ci.
-            }
+			var classInfos = IndicatorClassInfoProvider.ClassInfos;
+			foreach (var classInfo in classInfos) {
+				listBox1.Items.Add(classInfo);
+			}
         }
+
+		protected void listBox1_SelectedIndexChanged(object sender, EventArgs e) {
+			var classInfo = (ClassInfo)((ListBox)sender).SelectedItem;
+			dynamicForm.ClassInfo = classInfo;
+		}
+
+		private void btnOK_Click(object sender, EventArgs e) {
+			var instance = (Indicator)dynamicForm.Instance;
+			if (instance != null) {
+				if (IndicatorSelected != null) {
+					IndicatorSelected(this, new IndicatorSelectedEventArgs(instance));
+				}
+				Close();
+			}
+		}
 	}
 }

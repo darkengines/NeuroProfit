@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 namespace NeuroProfit.Indicators {
 	public class MovingAverageIndicator: Indicator {
 
+		public MovingAverageIndicator(): this(10, PriceType.Close) {
+		}
 		public MovingAverageIndicator(int period, PriceType priceType) {
 			Period = period;
 			PriceType = priceType;

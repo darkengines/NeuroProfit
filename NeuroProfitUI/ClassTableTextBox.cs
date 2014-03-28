@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 
 namespace NeuroProfitUI {
-	public class ClassTableTextBox<T>: Control, ClassTableEditor {
+	public class ClassTableTextBox<T>: UserControl, ClassTableEditor {
 		private TextBox _textbox;
 		public ClassTableTextBox(Func<string, T> converter) {
 			Converter = converter;
