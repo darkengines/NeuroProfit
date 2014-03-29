@@ -45,7 +45,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DynamicForm\ClassInfo.cs" />
     <Compile Include="DynamicForm\DynamicFormUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -65,7 +64,7 @@
     </Compile>
     <Compile Include="DynamicForm\DynamicFormTextboxProvider.cs" />
     <Compile Include="DynamicForm\ExpressionHelper.cs" />
-    <Compile Include="DynamicForm\MemberInfo.cs" />
+    <Compile Include="IndicatorClassInfoFactory.cs" />
     <Compile Include="IndicatorClassInfoProvider.cs" />
     <Compile Include="IndicatorForm.cs">
       <SubType>Form</SubType>

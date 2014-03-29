@@ -52,7 +52,8 @@
     <Compile Include="Indicators\Indicator.cs" />
     <Compile Include="IndicatorAddedEventArgs.cs" />
     <Compile Include="Indicators\MovingAverageIndicator.cs" />
-    <Compile Include="Indicators\ParameterAttibute.cs" />
+    <Compile Include="Indicators\ParameterAttribute.cs" />
+    <Compile Include="Indicators\PriceTypeDataSourceProvider.cs" />
     <Compile Include="PriceType.cs" />
     <Compile Include="TimeSpanExtension.cs" />
   </ItemGroup>
