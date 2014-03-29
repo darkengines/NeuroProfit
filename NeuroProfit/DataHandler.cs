@@ -19,7 +19,7 @@ namespace NeuroProfit {
 			Close = data.Select(d => d.Close).ToArray();
 			TickVolume = data.Select(d => d.TickVolume).ToArray();
 
-			Indicators = new List<Indicator>();
+			indicators = new List<Indicator>();
 		}
 
 		public string Name { get; protected set; }
@@ -29,17 +29,18 @@ namespace NeuroProfit {
 		public double[] Low { get; set; }
 		public double[] Close { get; set; }
 		public int[] TickVolume { get; set; }
-		protected List<Indicator> Indicators { get; set; }
+		protected List<Indicator> indicators;
+		public IEnumerable<Indicator> Indicators { get { return indicators; } }
 
 		public void AddIndicator(Indicator indicator) {
-			indicator.DataBind(this);
-			Indicators.Add(indicator);
+			indicator.DataBind();
+			indicators.Add(indicator);
 			if (IndicatorAdded != null) {
 				IndicatorAdded(this, new IndicatorAddedEventArgs(indicator));
 			}
 		}
 		public void RemoveIndicator(Indicator indicator) {
-			Indicators.Remove(indicator);
+			indicators.Remove(indicator);
 		}
 	}
 }

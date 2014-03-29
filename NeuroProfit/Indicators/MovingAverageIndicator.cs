@@ -7,19 +7,17 @@ using System.Threading.Tasks;
 namespace NeuroProfit.Indicators {
 	public class MovingAverageIndicator: Indicator {
 
-		public MovingAverageIndicator(): this(10, PriceType.Close) {
-		}
-		public MovingAverageIndicator(int period, PriceType priceType) {
-			Period = period;
-			PriceType = priceType;
-		}
-		public PriceType PriceType { get; set; }
+		[ParameterAttribute]
 		public int Period { get; set; }
+		[ParameterAttribute(typeof(PriceTypeDataSourceProvider))]
+		public PriceType PriceType { get; set; }
+		[BufferAttribute]
+		public double?[] MA { get; set; }
 
-		public override void DataBind(DataHandler dataHandler) {
-			var count = dataHandler.Date.Count();
+		public override void DataBind() {
+			var count = DataHandler.Date.Count();
 			var ma = new double?[count];
-			var data = Get(dataHandler, PriceType);
+			var data = Get(PriceType);
 			var i = 0;
 			var sum = 0.0d;
 			while (i < Period) {
@@ -30,11 +28,11 @@ namespace NeuroProfit.Indicators {
 			ma[i - 1] = sum / Period;
 			var factor = 1.0d / Period;
 			while (i < count) {
-				var d = (data[i] - data[i-Period])*factor;
+				var d = (data[i] - data[i - Period]) * factor;
 				ma[i] = ma[i - 1] + d;
 				i++;
 			}
-			Buffers["MA"] = ma;
+			MA = ma;
 		}
 	}
 }

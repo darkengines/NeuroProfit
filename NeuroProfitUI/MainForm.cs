@@ -1,5 +1,6 @@
 ﻿using NeuroProfit;
 using NeuroProfit.DataLoader;
+using NeuroProfit.Indicators;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,9 +18,16 @@ namespace NeuroProfitUI {
         protected DataHandler DataHandler {
             set {
                 dataHandler = value;
+				dataHandler.IndicatorAdded += dataHandler_IndicatorAdded;
                 ConfigureDatePickers();
             }
         }
+
+		void dataHandler_IndicatorAdded(object sender, IndicatorAddedEventArgs e) {
+			var input = ((DataHandler)sender).Indicators.Select(i => new IndicatorConfiguration(i));
+			var list = new BindingList<IndicatorConfiguration>(new List<IndicatorConfiguration>(input));
+			dgvInput.DataSource = list;
+		}
         public MainForm() {
             InitializeComponent();
         }
@@ -31,8 +39,7 @@ namespace NeuroProfitUI {
         }
 
         void indicatorForm_IndicatorSelected(object sender, IndicatorSelectedEventArgs e) {
-            cblInput.Items.Add(e.Indicator);
-            cblOutput.Items.Add(e.Indicator);
+			dataHandler.AddIndicator(e.Indicator);
         }
 
         private void btnBrowse_Click(object sender, EventArgs e) {
@@ -58,5 +65,11 @@ namespace NeuroProfitUI {
             dateTestFrom.Value = dates[testFromIndex];
             dateTestTo.Value = dates[testToIndex];
         }
+
+		private void cblInput_ItemCheck(object sender, ItemCheckEventArgs e) {
+			var list = (CheckedListBox)sender;
+			var items = list.CheckedItems.Cast<Indicator>();
+			dgvInput.DataSource = items;
+		}
     }
 }

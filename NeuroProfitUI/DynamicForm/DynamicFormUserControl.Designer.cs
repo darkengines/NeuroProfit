@@ -45,9 +45,9 @@
 			// DynamicLayout
 			// 
 			this.DynamicLayout.BackColor = System.Drawing.SystemColors.Control;
+			this.DynamicLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
 			this.DynamicLayout.ColumnCount = 1;
 			this.DynamicLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.DynamicLayout.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.DynamicLayout.Location = new System.Drawing.Point(3, 3);
 			this.DynamicLayout.Name = "DynamicLayout";
 			this.DynamicLayout.RowCount = 1;
@@ -55,12 +55,12 @@
 			this.DynamicLayout.Size = new System.Drawing.Size(1017, 495);
 			this.DynamicLayout.TabIndex = 0;
 			// 
-			// DynamicForm
+			// DynamicFormUserControl
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this.tableLayoutPanel1);
-			this.Name = "DynamicForm";
+			this.Name = "DynamicFormUserControl";
 			this.Size = new System.Drawing.Size(1023, 501);
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.ResumeLayout(false);

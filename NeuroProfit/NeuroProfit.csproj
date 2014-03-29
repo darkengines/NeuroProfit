@@ -47,9 +47,12 @@
     <Compile Include="DateRange.cs" />
     <Compile Include="Datum.cs" />
     <Compile Include="Forecasting\ForecastConfiguration.cs" />
+    <Compile Include="IndicatorConfiguration.cs" />
+    <Compile Include="Indicators\BufferAttribute.cs" />
     <Compile Include="Indicators\Indicator.cs" />
     <Compile Include="IndicatorAddedEventArgs.cs" />
     <Compile Include="Indicators\MovingAverageIndicator.cs" />
+    <Compile Include="Indicators\ParameterAttibute.cs" />
     <Compile Include="PriceType.cs" />
     <Compile Include="TimeSpanExtension.cs" />
   </ItemGroup>
