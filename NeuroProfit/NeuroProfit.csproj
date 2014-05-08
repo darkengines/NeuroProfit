@@ -52,7 +52,7 @@
     <Compile Include="Indicators\Indicator.cs" />
     <Compile Include="IndicatorAddedEventArgs.cs" />
     <Compile Include="Indicators\MovingAverageIndicator.cs" />
-    <Compile Include="Indicators\ParameterAttribute.cs" />
+    <Compile Include="ParameterAttribute.cs" />
     <Compile Include="Indicators\PriceTypeDataSourceProvider.cs" />
     <Compile Include="PriceType.cs" />
     <Compile Include="TimeSpanExtension.cs" />
@@ -62,6 +62,12 @@
       <HintPath>..\lib\FileHelpers.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DarkEngines\DarkEngines.csproj">
+      <Project>{62f339b4-4449-4055-9622-67e6c18338b3}</Project>
+      <Name>DarkEngines</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

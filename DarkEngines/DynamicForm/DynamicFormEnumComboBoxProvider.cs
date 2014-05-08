@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NeuroProfitUI.DynamicForm {
+namespace DarkEngines.DynamicForm {
 	public class DynamicFormEnumComboBoxProvider: IDynamicFormEditorProvider {
 		protected Type enumType;
 		public DynamicFormEnumComboBoxProvider(Type enumType) {

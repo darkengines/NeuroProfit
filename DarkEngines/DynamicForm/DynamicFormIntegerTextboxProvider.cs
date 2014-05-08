@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NeuroProfitUI.DynamicForm {
-	public class DynamicFormInteger64TextboxProvider: IDynamicFormEditorProvider {
+namespace DarkEngines.DynamicForm {
+	public class DynamicFormIntegerTextboxProvider: IDynamicFormEditorProvider {
 		public DynamicFormEditor GetNewEditor() {
-			return new DynamicFormTextBox<Int64?>(x => {
+			return new DynamicFormTextBox<int?>(x => {
 				int t;
 				if (int.TryParse(x, out t)) {
 					return t;

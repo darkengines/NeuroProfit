@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DarkEngines;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,11 +8,11 @@ using System.Threading.Tasks;
 namespace NeuroProfit.Indicators {
 	public class MovingAverageIndicator: Indicator {
 
-		[ParameterAttribute]
+		[FieldAttribute]
 		public int Period { get; set; }
-		[ParameterAttribute(typeof(PriceTypeDataSourceProvider))]
+		[FieldAttribute(typeof(PriceTypeDataSourceProvider))]
 		public PriceType PriceType { get; set; }
-		[BufferAttribute]
+		[FieldAttribute]
 		public double?[] MA { get; set; }
 
 		public override void DataBind() {

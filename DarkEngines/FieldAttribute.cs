@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NeuroProfit.Indicators {
-	public class ParameterAttribute: Attribute {
+namespace DarkEngines {
+	public class FieldAttribute: Attribute {
 		public Type DataSourceProviderType { get; protected set; }
-		public ParameterAttribute() {
+		public FieldAttribute() {
 			DataSourceProviderType = null;
 		}
-		public ParameterAttribute(Type dataSourceProviderType) {
+		public string Label { get; set; }
+		public FieldAttribute(Type dataSourceProviderType) {
 			DataSourceProviderType = dataSourceProviderType;
 		}
 	}

@@ -1,11 +1,10 @@
-﻿using NeuroProfitUI.DynamicForm;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace NeuroProfitUI {
+namespace DarkEngines.DynamicForm {
 	public class DynamicFormComboBox: UserControl, DynamicFormEditor {
 		private ComboBox comboBox;
 		protected Func<object, object> Converter { get; set; }

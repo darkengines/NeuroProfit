@@ -45,27 +45,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DynamicForm\DynamicFormUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="DynamicForm\DynamicFormUserControl.Designer.cs">
-      <DependentUpon>DynamicFormUserControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DynamicForm\DynamicFormComboBox.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="DynamicForm\DynamicFormEditor.cs" />
-    <Compile Include="DynamicForm\DynamicFormEditorProvider.cs" />
-    <Compile Include="DynamicForm\DynamicFormEnumComboBoxProvider.cs" />
-    <Compile Include="DynamicForm\DynamicFormInteger64TextboxProvider.cs" />
-    <Compile Include="DynamicForm\DynamicFormIntegerTextboxProvider.cs" />
-    <Compile Include="DynamicForm\DynamicFormTextBox.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="DynamicForm\DynamicFormTextboxProvider.cs" />
-    <Compile Include="DynamicForm\ExpressionHelper.cs" />
-    <Compile Include="IndicatorClassInfoFactory.cs" />
-    <Compile Include="IndicatorClassInfoProvider.cs" />
     <Compile Include="IndicatorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,12 +58,8 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MovingAverageIndicatorInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="DynamicForm\DynamicFormUserControl.resx">
-      <DependentUpon>DynamicFormUserControl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="IndicatorForm.resx">
       <DependentUpon>IndicatorForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,6 +89,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DarkEngines\DarkEngines.csproj">
+      <Project>{62f339b4-4449-4055-9622-67e6c18338b3}</Project>
+      <Name>DarkEngines</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NeuroProfit\NeuroProfit.csproj">
       <Project>{a9ac938d-3707-4fc4-a063-67465ec55da2}</Project>
       <Name>NeuroProfit</Name>

@@ -7,19 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using NeuroProfit.Indicators;
 
-namespace NeuroProfitUI.DynamicForm {
+namespace DarkEngines.DynamicForm {
 	public class DynamicFormUserControl : UserControl {
 		public object Instance {
 			get;
 			set;
 		}
 		protected void BuildForm() {
-			var properties = Instance.GetType().GetProperties().Where(p => Attribute.IsDefined(p, typeof(ParameterAttribute)));
+			var properties = Instance.GetType().GetProperties().Where(p => Attribute.IsDefined(p, typeof(FieldAttribute)));
 			foreach (var property in properties) {
-				var dataSourceType = property.GetCustomAttributes(typeof(ParameterAttribute), false)
-					.Cast<ParameterAttribute>()
+				var dataSourceType = property.GetCustomAttributes(typeof(FieldAttribute), false)
+					.Cast<FieldAttribute>()
 					.First()
 					.DataSourceProviderType;
 				if (dataSourceType != null) {
